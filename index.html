@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #d30fe9);
+            color: #555;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container Style */
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #000000;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 10px;
+        }
+
+        /* Label Style */
+        label {
+            font-size: 16px;
+            color: #060606;
+            font-weight: 600;
+        }
+
+        /* Input Fields */
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #000000;
+            font-size: 16px;
+            background-color: #f1f8e9;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #004d40;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            background: linear-gradient(to right, #5a00a3, #d40596);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #5a00a3, #003d33);
+            transform: translateY(-2px);
+        }
+
+        /* Reset Button */
+        input[type="reset"] {
+            background: #f1f8e9;
+            color: #090109;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        input[type="reset"]:hover {
+            background: #c8e6c9;
+            transform: translateY(-2px);
+        }
+
+        /* Grid Layout for Large Screens */
+        @media (min-width: 768px) {
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .form-group {
+                grid-column: span 2;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Scholarship Application Form</h1>
+        <form name="scholarship" action="process_registration.php" method="post">
+            <div class="form-group">
+                <label for="usn">Student ID</label>
+                <input id="usn" required type="text" name="student_id"/>
+            </div>
+            <div class="form-group">
+                <label for="uname">Full Name</label>
+                <input id="uname" required name="full_name" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" required name="email" type="email"/>
+            </div>
+            <div class="form-group">
+                <label for="pswd">Password</label>
+                <input id="pswd" required name="password" type="password"/>
+            </div>
+            <div class="form-group">
+                <label for="bday">Date of Birth</label>
+                <input id="bday" name="dob" required type="date" min="1930-01-01" max="2024-12-31"/>
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select Course</option>
+                    <option>B.Tech</option>
+                    <option>B.Sc</option>
+                    <option>B.Com</option>
+                    <option>BA</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="year">Year of Study</label>
+                <select id="year" name="year" required>
+                    <option value="" disabled selected>Select Year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="income">Family Income (per annum)</label>
+                <input id="income" required type="number" name="family_income" min="0"/>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for Scholarship</label>
+                <textarea id="reason" required name="reason"></textarea>
+            </div>
+            <div class="form-group">
+                <input name="submit" type="submit" value="Submit Application"/>
+                <input type="reset" value="Reset Form"/>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
